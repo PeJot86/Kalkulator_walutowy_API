@@ -1,0 +1,36 @@
+<html>
+<body style="background-color: DarkSlateGray; color: white">
+<center><h3>Witaj w kalkulatorze walut!<h3/>
+<form method="post" action=""> 
+<label for="currency">Wybierz walutę:</label>
+<br/>
+<br/>
+<select name="currency" id="currency">
+  <option value="USD">USD</option>
+  <option value="AUD">AUD</option>
+  <option value="CAD">CAD</option>
+  <option value="EUR">EUR</option>
+  <option value="HUF">HUF</option>
+  <option value="CHF">CHF</option>
+  <option value="GBP">GBP</option>
+  <option value="JPY">JPY</option>
+  <option value="CZK">CZK</option>
+  <option value="DKK">DKK</option>
+  <option value="NOK">NOK</option>
+  <option value="SEK">SEK</option>
+  <option value="XDR">XDR</option>
+</select>
+<br/>
+<br/>
+    <label for="name">Wybierz ilość</label>
+<br/>
+<br/> 
+    <input type="number" id="namber" name="number"><br>
+<br/>
+
+    <input type="submit" value="Policz">
+</form>
+<br/>
+<h3>-- {{result}} -- zł.<h3>
+<center/>
+<body/>
