@@ -18,7 +18,7 @@ def export_to_csv():
         for n in dates:
             csvwriter.writerow(n)
 
-#export_to_csv()
+export_to_csv()
 
 money = []
 
