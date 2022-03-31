@@ -5,41 +5,23 @@ import csv
 response = requests.get('http://api.nbp.pl/api/exchangerates/tables/C?format=json')
 data = response.json()
 
-dates = {}
- 
-for i in data:
-    dates = (i['rates'])
+rates = data[0]["rates"]
+
+exchange_rate = {}
+
+for rate in rates:
+    exchange_rate[rate["code"]] = rate["ask"]
 
 def export_to_csv():
     with open('Waluty.csv', mode='w', encoding='utf-8') as csv_file:
         fieldnames = ['currency', 'code', 'bid', 'ask']
         csvwriter = csv.DictWriter(csv_file, fieldnames=fieldnames)
         csvwriter.writeheader()
-        for n in dates:
+        for n in rates:
             csvwriter.writerow(n)
 
 export_to_csv()
 
-money = []
-
-for i in dates:
-    money.append (i['ask'])
-
-exchange_rate ={
-'USD' : money[0],
-'AUD' : money[1],
-'CAD' : money[2],
-'EUR' : money[3],
-'HUF' : money[4],
-'CHF' : money[5],
-'GBP' : money[6],
-'JPY' : money[7],
-'CZK' : money[8],
-'DKK' : money[9],
-'NOK' : money[10],
-'SEK' : money[11],
-'XDR' : money[12]
-}
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
